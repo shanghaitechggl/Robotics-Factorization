@@ -1,0 +1,34 @@
+﻿  factorization_v3.cpp
+F:\学习资料\研一上\机器人\project\factorization_v3\svd.h(51,18): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+F:\学习资料\研一上\机器人\project\factorization_v3\svd.h(52,21): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+F:\学习资料\研一上\机器人\project\factorization_v3\svd.h(71,12): warning C4244: “参数”: 从“time_t”转换到“unsigned int”，可能丢失数据
+F:\学习资料\研一上\机器人\project\factorization_v3\factorization.h(49,29): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+F:\学习资料\研一上\机器人\project\factorization_v3\factorization.h(51,9): warning C4244: “初始化”: 从“_Tp”转换到“int”，可能丢失数据
+F:\学习资料\研一上\机器人\project\factorization_v3\factorization.h(51,9): warning C4244:         with
+F:\学习资料\研一上\机器人\project\factorization_v3\factorization.h(51,9): warning C4244:         [
+F:\学习资料\研一上\机器人\project\factorization_v3\factorization.h(51,9): warning C4244:             _Tp=float
+F:\学习资料\研一上\机器人\project\factorization_v3\factorization.h(51,9): warning C4244:         ]
+F:\学习资料\研一上\机器人\project\factorization_v3\factorization.h(52,9): warning C4244: “初始化”: 从“_Tp”转换到“int”，可能丢失数据
+F:\学习资料\研一上\机器人\project\factorization_v3\factorization.h(52,9): warning C4244:         with
+F:\学习资料\研一上\机器人\project\factorization_v3\factorization.h(52,9): warning C4244:         [
+F:\学习资料\研一上\机器人\project\factorization_v3\factorization.h(52,9): warning C4244:             _Tp=float
+F:\学习资料\研一上\机器人\project\factorization_v3\factorization.h(52,9): warning C4244:         ]
+F:\学习资料\研一上\机器人\project\factorization_v3\factorization.h(91,37): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+F:\学习资料\研一上\机器人\project\factorization_v3\factorization.h(156,21): warning C4267: “=”: 从“size_t”转换到“int”，可能丢失数据
+F:\学习资料\研一上\机器人\project\factorization_v3\factorization.h(184,32): warning C4244: “=”: 从“int”转换到“float”，可能丢失数据
+F:\学习资料\研一上\机器人\project\factorization_v3\factorization.h(185,38): warning C4244: “=”: 从“int”转换到“float”，可能丢失数据
+F:\学习资料\研一上\机器人\project\factorization_v3\factorization.h(235,27): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+F:\学习资料\研一上\机器人\project\factorization_v3\factorization.h(249,54): warning C4244: “=”: 从“_Tp”转换到“float”，可能丢失数据
+F:\学习资料\研一上\机器人\project\factorization_v3\factorization.h(249,54): warning C4244:         with
+F:\学习资料\研一上\机器人\project\factorization_v3\factorization.h(249,54): warning C4244:         [
+F:\学习资料\研一上\机器人\project\factorization_v3\factorization.h(249,54): warning C4244:             _Tp=double
+F:\学习资料\研一上\机器人\project\factorization_v3\factorization.h(249,54): warning C4244:         ]
+F:\学习资料\研一上\机器人\project\factorization_v3\factorization.h(250,60): warning C4244: “=”: 从“_Tp”转换到“float”，可能丢失数据
+F:\学习资料\研一上\机器人\project\factorization_v3\factorization.h(250,60): warning C4244:         with
+F:\学习资料\研一上\机器人\project\factorization_v3\factorization.h(250,60): warning C4244:         [
+F:\学习资料\研一上\机器人\project\factorization_v3\factorization.h(250,60): warning C4244:             _Tp=double
+F:\学习资料\研一上\机器人\project\factorization_v3\factorization.h(250,60): warning C4244:         ]
+F:\学习资料\研一上\机器人\project\factorization_v3\factorization.h(262,46): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+F:\学习资料\研一上\机器人\project\factorization_v3\factorization.h(285,42): warning C4267: “=”: 从“size_t”转换到“int”，可能丢失数据
+F:\学习资料\研一上\机器人\project\factorization_v3\factorization_v3.cpp(23,39): warning C4267: “=”: 从“size_t”转换到“int”，可能丢失数据
+  factorization_v3.vcxproj -> F:\学习资料\研一上\机器人\project\factorization_v3\x64\Debug\factorization_v3.exe

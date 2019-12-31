@@ -1,0 +1,44 @@
+﻿  factorization_v3.cpp
+F:\学习资料\研一上\机器人\project\factorization_v3\svd.h(71,12): warning C4244: “参数”: 从“time_t”转换到“unsigned int”，可能丢失数据
+F:\学习资料\研一上\机器人\project\factorization_v3\factorization.h(107,41): warning C4244: “=”: 从“_Tp”转换到“int”，可能丢失数据
+F:\学习资料\研一上\机器人\project\factorization_v3\factorization.h(107,41): warning C4244:         with
+F:\学习资料\研一上\机器人\project\factorization_v3\factorization.h(107,41): warning C4244:         [
+F:\学习资料\研一上\机器人\project\factorization_v3\factorization.h(107,41): warning C4244:             _Tp=double
+F:\学习资料\研一上\机器人\project\factorization_v3\factorization.h(107,41): warning C4244:         ]
+F:\学习资料\研一上\机器人\project\factorization_v3\factorization.h(108,47): warning C4244: “=”: 从“_Tp”转换到“int”，可能丢失数据
+F:\学习资料\研一上\机器人\project\factorization_v3\factorization.h(108,47): warning C4244:         with
+F:\学习资料\研一上\机器人\project\factorization_v3\factorization.h(108,47): warning C4244:         [
+F:\学习资料\研一上\机器人\project\factorization_v3\factorization.h(108,47): warning C4244:             _Tp=double
+F:\学习资料\研一上\机器人\project\factorization_v3\factorization.h(108,47): warning C4244:         ]
+F:\学习资料\研一上\机器人\project\factorization_v3\factorization.h(115,54): warning C4244: “=”: 从“_Tp”转换到“int”，可能丢失数据
+F:\学习资料\研一上\机器人\project\factorization_v3\factorization.h(115,54): warning C4244:         with
+F:\学习资料\研一上\机器人\project\factorization_v3\factorization.h(115,54): warning C4244:         [
+F:\学习资料\研一上\机器人\project\factorization_v3\factorization.h(115,54): warning C4244:             _Tp=double
+F:\学习资料\研一上\机器人\project\factorization_v3\factorization.h(115,54): warning C4244:         ]
+F:\学习资料\研一上\机器人\project\factorization_v3\factorization.h(116,60): warning C4244: “=”: 从“_Tp”转换到“int”，可能丢失数据
+F:\学习资料\研一上\机器人\project\factorization_v3\factorization.h(116,60): warning C4244:         with
+F:\学习资料\研一上\机器人\project\factorization_v3\factorization.h(116,60): warning C4244:         [
+F:\学习资料\研一上\机器人\project\factorization_v3\factorization.h(116,60): warning C4244:             _Tp=double
+F:\学习资料\研一上\机器人\project\factorization_v3\factorization.h(116,60): warning C4244:         ]
+F:\学习资料\研一上\机器人\project\factorization_v3\factorization.h(129,36): warning C4244: “=”: 从“_Tp”转换到“int”，可能丢失数据
+F:\学习资料\研一上\机器人\project\factorization_v3\factorization.h(129,36): warning C4244:         with
+F:\学习资料\研一上\机器人\project\factorization_v3\factorization.h(129,36): warning C4244:         [
+F:\学习资料\研一上\机器人\project\factorization_v3\factorization.h(129,36): warning C4244:             _Tp=double
+F:\学习资料\研一上\机器人\project\factorization_v3\factorization.h(129,36): warning C4244:         ]
+F:\学习资料\研一上\机器人\project\factorization_v3\factorization.h(130,42): warning C4244: “=”: 从“_Tp”转换到“int”，可能丢失数据
+F:\学习资料\研一上\机器人\project\factorization_v3\factorization.h(130,42): warning C4244:         with
+F:\学习资料\研一上\机器人\project\factorization_v3\factorization.h(130,42): warning C4244:         [
+F:\学习资料\研一上\机器人\project\factorization_v3\factorization.h(130,42): warning C4244:             _Tp=double
+F:\学习资料\研一上\机器人\project\factorization_v3\factorization.h(130,42): warning C4244:         ]
+F:\学习资料\研一上\机器人\project\factorization_v3\factorization.h(145,23): warning C4018: “<”: 有符号/无符号不匹配
+factorization_v3.obj : error LNK2019: 无法解析的外部符号 "void __cdecl cv::fastFree(void *)" (?fastFree@cv@@YAXPAX@Z)，该符号在函数 "public: __thiscall cv::Mat::~Mat(void)" (??1Mat@cv@@QAE@XZ) 中被引用
+factorization_v3.obj : error LNK2019: 无法解析的外部符号 "void __cdecl cv::error(int,class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > const &,char const *,char const *,int)" (?error@cv@@YAXHABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@PBD1H@Z)，该符号在函数 "public: float & __thiscall cv::Mat::at<float>(int,int)" (??$at@M@Mat@cv@@QAEAAMHH@Z) 中被引用
+factorization_v3.obj : error LNK2019: 无法解析的外部符号 "public: void __thiscall cv::Mat::create(int,int const *,int)" (?create@Mat@cv@@QAEXHPBHH@Z)，该符号在函数 "public: void __thiscall cv::Mat::create(int,int,int)" (?create@Mat@cv@@QAEXHHH@Z) 中被引用
+factorization_v3.obj : error LNK2019: 无法解析的外部符号 "public: void __thiscall cv::Mat::deallocate(void)" (?deallocate@Mat@cv@@QAEXXZ)，该符号在函数 "public: void __thiscall cv::Mat::release(void)" (?release@Mat@cv@@QAEXXZ) 中被引用
+factorization_v3.obj : error LNK2019: 无法解析的外部符号 "public: void __thiscall cv::Mat::copySize(class cv::Mat const &)" (?copySize@Mat@cv@@QAEXABV12@@Z)，该符号在函数 "public: __thiscall cv::Mat::Mat(class cv::Mat const &)" (??0Mat@cv@@QAE@ABV01@@Z) 中被引用
+factorization_v3.obj : error LNK2019: 无法解析的外部符号 "void __cdecl cv::glob(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >,class std::vector<class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >,class std::allocator<class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > > > &,bool)" (?glob@cv@@YAXV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@AAV?$vector@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@V?$allocator@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@2@@3@_N@Z)，该符号在函数 "class std::vector<class cv::Mat,class std::allocator<class cv::Mat> > __cdecl read_images_in_folder(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >,int)" (?read_images_in_folder@@YA?AV?$vector@VMat@cv@@V?$allocator@VMat@cv@@@std@@@std@@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@2@H@Z) 中被引用
+factorization_v3.obj : error LNK2019: 无法解析的外部符号 "class cv::Mat __cdecl cv::imread(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > const &,int)" (?imread@cv@@YA?AVMat@1@ABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@H@Z)，该符号在函数 "class std::vector<class cv::Mat,class std::allocator<class cv::Mat> > __cdecl read_images_in_folder(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >,int)" (?read_images_in_folder@@YA?AV?$vector@VMat@cv@@V?$allocator@VMat@cv@@@std@@@std@@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@2@H@Z) 中被引用
+factorization_v3.obj : error LNK2019: 无法解析的外部符号 "void __cdecl cv::cornerHarris(class cv::debug_build_guard::_InputArray const &,class cv::debug_build_guard::_OutputArray const &,int,int,double,int)" (?cornerHarris@cv@@YAXABV_InputArray@debug_build_guard@1@ABV_OutputArray@31@HHNH@Z)，该符号在函数 "void __cdecl constructW(void)" (?constructW@@YAXXZ) 中被引用
+factorization_v3.obj : error LNK2019: 无法解析的外部符号 "double __cdecl cv::threshold(class cv::debug_build_guard::_InputArray const &,class cv::debug_build_guard::_OutputArray const &,double,double,int)" (?threshold@cv@@YANABV_InputArray@debug_build_guard@1@ABV_OutputArray@31@NNH@Z)，该符号在函数 "void __cdecl constructW(void)" (?constructW@@YAXXZ) 中被引用
+factorization_v3.obj : error LNK2019: 无法解析的外部符号 "void __cdecl cv::calcOpticalFlowPyrLK(class cv::debug_build_guard::_InputArray const &,class cv::debug_build_guard::_InputArray const &,class cv::debug_build_guard::_InputArray const &,class cv::debug_build_guard::_InputOutputArray const &,class cv::debug_build_guard::_OutputArray const &,class cv::debug_build_guard::_OutputArray const &,class cv::Size_<int>,int,class cv::TermCriteria,int,double)" (?calcOpticalFlowPyrLK@cv@@YAXABV_InputArray@debug_build_guard@1@00ABV_InputOutputArray@31@ABV_OutputArray@31@2V?$Size_@H@1@HVTermCriteria@1@HN@Z)，该符号在函数 "void __cdecl constructW(void)" (?constructW@@YAXXZ) 中被引用
+F:\学习资料\研一上\机器人\project\factorization_v3\Debug\factorization_v3.exe : fatal error LNK1120: 10 个无法解析的外部命令
