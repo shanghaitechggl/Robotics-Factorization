@@ -58,7 +58,7 @@ Q=double(Q);
 % Q=[x(1),x(2),x(3);x(2),x(4),x(5);x(3),x(5),x(6)];
 
 [V,D]=eig(Q);
-Q=V+sqrt(D);
+Q=V*sqrt(D);
 
 
 S=Q\S;

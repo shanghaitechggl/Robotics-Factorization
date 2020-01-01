@@ -25,34 +25,34 @@ void W2file(vector<vector<double>>& W_vec) {
 
 void mat2vec(float** W, vector<vector<double>>& vec, int &height, int& width) {
 	//把后面只有-1的列删掉
-	for (int j = 0; j < width; j++) {
+	for (int j = width-1; j >= 0; j--) {
 		bool exist = false;
-		for (int i = 0; i < height; i++) {
+		for (int i = height-1; i >=0; i--) {
 			if (W[i][j] != -1)
 			{
 				exist = true;
 				break;
 			}
 		}
-		if (!exist)
+		if (exist)
 		{
-			width = j;
+			width = j+1;
 			break;
 		}
 	}
 	//把只有-1的行删掉
-	for (int i = 0; i < height; i++) {
+	for (int i = height-1; i >=0; i--) {
 		bool exist = false;
-		for (int j = 0; j < width; j++) {
+		for (int j = width-1; j >=0; j--) {
 			if (W[i][j]!=-1)
 			{
 				exist = true;
 				break;
 			}
 		}
-		if (!exist)
+		if (exist)
 		{
-			height = i;
+			height = i+1;
 			break;
 		}
 	}

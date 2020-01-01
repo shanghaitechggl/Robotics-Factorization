@@ -1,15 +1,39 @@
-filename='cppW.txt';
+filename='cppW2.txt';
 W=textread(filename);
 W=W(:,1:size(W,2)-1);
-T = nanmean(W,1); %mean values
+W(W==-1)=0;
+T = mean(W,1); %mean values
 T = repmat(T, [size(W,1),1]);
 W=W-T;
 
 [u,d,v]=svds(W,3);
-r=(d^(1/2)*v');
-x=r(1,:);
-y=r(2,:);
-z=r(3,:);
+d=sqrt(d);
+r=v*d;
+s=d*u';
+s=-r';
+
+% syms a11 a12 a13 a21 a22 a23 a31 a32 a33;
+% x=[a11 a12 a13 a22 a23 a33];
+% Q=[a11,a12,a13;a12,a22,a23;a13,a23,a33];
+% eqs=[];
+% num=2000;
+% start=randi(30);
+% for i=start:2:start+2
+%     eqs=[eqs, r(i,:)*Q*r(i,:)'==1];
+%     eqs=[eqs, r(i,:)*Q*r(i+num,:)'==0];
+%     eqs=[eqs, r(i+num,:)*Q*r(i+num,:)'==1];
+% end
+% y=solve(eqs,x)
+% Q=[y.a11,y.a12,y.a13;y.a12,y.a22,y.a23;y.a13,y.a23,y.a33];
+% Q=double(Q);
+% 
+% [V,D]=eig(Q);
+% Q=V*sqrt(D);
+% S=Q\s;
+
+x=s(1,:);
+y=s(2,:);
+z=s(3,:);
 figure;
 plot3(x,y,z, '.');
 % plot3(x,y,z);

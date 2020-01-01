@@ -9,8 +9,8 @@ vector<Mat> images;
 float** W;
 int col_W = 0;
 //初始化一些参数
-int harris_flag = 20;
-int pic_num = 0;
+int harris_flag = 200;
+int pic_num = 200;
 int idx_interval = 1;
 const int max_size = 200000;
 vector<Point2f> features;
@@ -20,7 +20,7 @@ vector<float> err;
 int start = 0;
 int im_height = 480;
 int im_width = 640;
-double arg_threshold = 0.001;
+double arg_threshold = 0.0001;
 int num;
 int height;
 int width;
@@ -28,12 +28,13 @@ vector<vector<double>> W_vec;
 bool transed = false;
 int ill_cnt = 0;
 bool ill_fir = false;
-int ill_num = 10;
+int ill_num = 5;
 int ill_svcnt = 0;
 int ill_length = 6;
 Mat ill_img;
 vector<Point2f> ill_lastf;
 //注意！！！Mat类型的x朝下，Point2d的x朝右
+float per_error = 5;
 
 vector<Mat> read_images_in_folder(cv::String pattern, int pic_num);
 void constructW();
@@ -90,9 +91,10 @@ void illustration(Mat image) {
 	{
 		//cout << ill_fir << endl;
 		int length = features_after.size();
+		int last_len = ill_lastf.size();
 		if (ill_fir)
 		{
-			for (int i = 0; i < length; i++) {
+			for (int i = 0; i < length && i<last_len; i++) {
 				circle(ill_img, features_after[i], 1, Scalar(0, 255, 0), 1);
 				line(ill_img, ill_lastf[i], features_after[i], Scalar(255, 0, 0));
 			}
@@ -194,65 +196,66 @@ void constructW() {
 				//cout << W[0][0];
 			}
 			else {
-				//cout << "hhhahha" << endl;
 				//光流法获得特征点的新位置
 				features_after.clear();
 				calcOpticalFlowPyrLK(images[i + 1], images[i], features, features_after, status, err);
-				//opticalFlow(images[i + 1], images[i]);
-				//获得新位置的最后一个点的位置，即上一张图最后一个特征点在新图的位置
-				size_t fasize = features_after.size();
-				//cout << fasize << endl;
-				Point2d tmp = features_after[fasize - 1];
-				int cnt = 0;
-				//记下最后的几个点
-				vector<Point2d> tmp_points;
-				//退出循环的flag
-				bool quit = false;
-				for (int j = im_height - 1; j >= 0; j--) {
-					for (int k = im_width - 1; k >= 0; k--) {
-						if (harrisCorner.at<float>(j, k) > 10) {
-							if (j > tmp.x || (j == tmp.x && k > tmp.y))
+				//不断对比光流法和Harris的结果，把Harris与光流法相等的部分记录下来
+				//当光流法的结果的被遍历完后，把Harris的结果依次填在后面
+				int tmp_idx_point=0;
+				int tmp_after_size = features_after.size();
+				int tmp_idx_W = start;
+				features.clear();
+				for (int k = 0; k < im_width; k++) {
+					for (int j = 0; j < im_height; j++) {
+						float tmp_x;
+						float tmp_y;
+						if (tmp_idx_point < tmp_after_size)
+						{
+							tmp_x = features_after[tmp_idx_point].x;
+							tmp_y = features_after[tmp_idx_point].y;
+						}
+						if (tmp_idx_point>=tmp_after_size)
+						{
+							if (harrisCorner.at<float>(j, k) > 10) {
+								W[idx_i][tmp_idx_W] = j;
+								W[idx_i + num][tmp_idx_W++] = k;
+								Point2f pp(k, j);
+								features.push_back(pp);
+							}
+						}
+						else if ((k < tmp_x&&abs(k-tmp_x)>per_error)||((k == tmp_x|| abs(k - tmp_x) <= per_error)&&j<tmp_y&&abs(j-tmp_y)>per_error))
+						{
+							if (tmp_idx_point==0)
 							{
-								cnt++;
-								Point2d pp(j, k);
-								tmp_points.push_back(pp);
+								start++;
+							}
+							continue;
+						}
+						else if (harrisCorner.at<float>(j,k)>10)
+						{
+							if (abs(k-tmp_x)<= per_error &&abs(j-tmp_y)<= per_error)
+							{
+								W[idx_i][tmp_idx_W] = j;
+								W[idx_i + num][tmp_idx_W++] = k;
+								Point2f pp(k, j);
+								features.push_back(pp);
+								tmp_idx_point++;
 							}
 							else {
-								quit = true;
-								break;
+								while ((tmp_x<k&&(k - tmp_x)>per_error)||(abs(k-tmp_x)<= per_error &&tmp_y<j&&(j-tmp_y)>per_error))
+								{
+									tmp_idx_point++;
+									if (tmp_idx_point >= tmp_after_size)
+									{
+										break;
+									}
+									tmp_x = features_after[tmp_idx_point].x;
+									tmp_y = features_after[tmp_idx_point].y;
+								}
 							}
 						}
 					}
-					if (quit)
-					{
-						break;
-					}
 				}
-
-				features.clear();
-				//中间track的结果认为正确，直接赋值
-				for (size_t j = cnt; j < fasize; j++)
-				{
-					int idx_j = start + j;
-					W[idx_i][idx_j] = features_after[j].y;
-					W[num + idx_i][idx_j] = features_after[j].x;
-					Point2d pp(features_after[j].x, features_after[j].y);
-					features.push_back(pp);
-				}
-				//在最后加cnt个新点
-				if (start+cnt>=max_size)
-				{
-					cout << "处理到了第" << i << "张图像" << endl;
-					break;
-				}
-				for (int j = 0; j < cnt; j++) {
-					int idx_j = cnt - 1 - j;
-					W[idx_i][fasize + start + j] = tmp_points[idx_j].y;
-					W[idx_i + num][fasize + start + j] = tmp_points[idx_j].x;
-					Point2d pp(tmp_points[idx_j]);
-					features.push_back(pp);
-				}
-				start += cnt;
 			}
 		}
 		else {
@@ -263,7 +266,8 @@ void constructW() {
 			int length = start + features_after.size();
 			//cout << length << endl;
 			//把track到的点赋值
-			features.clear();
+			if(length!=start)
+				features.clear();
 			for (int j = start; j < length; j++) {
 				int idx_j = j - start;
 				W[idx_i][j] = features_after[idx_j].y;
